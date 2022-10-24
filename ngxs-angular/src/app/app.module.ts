@@ -8,6 +8,8 @@ import {NgxsLoggerPlugin, NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 import {NgxsReduxDevtoolsPlugin, NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import { GeneralComponent } from './components/general/general.component';
 import {DataService} from "./services/data.service";
+import {HttpClientModule} from "@angular/common/http";
+import {AppState} from "./store/app.state";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {DataService} from "./services/data.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxsModule.forRoot(),
+    HttpClientModule,
+    NgxsModule.forRoot([AppState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
